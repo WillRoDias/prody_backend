@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         if @user.save 
             render json: @user, status: 201
         else
-            render json: @student_create.errors, status: 422
+            render json: @user.errors, status: 422
         end
     end
 

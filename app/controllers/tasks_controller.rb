@@ -15,13 +15,13 @@ class TasksController < ApplicationController
         if @task.save
             render json: @task, status: 202
         else
-            render json: {message: "erro ao criar user"}
+            render json: @task.errors, status: 422
         end
     end
 
     private
 
     def task_params
-        params.permit(:name)
+        params.permit(:users_id, :name)
     end
 end
